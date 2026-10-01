@@ -14,3 +14,18 @@ Running log of agent-session setup and activity for this repo, on the
   `main`.
 - `CLAUDE.md` already present at repo root (from upstream) — skipped
   `/init`.
+
+## 2026-10-01 10:32 — moodle-cli-1 launch (idle, Remote Control), tmux-on-ls8-slurm scheme
+
+- Launched idle — no task given, standing by for Remote Control.
+- Session name: `moodle-cli-1`
+- Claude Code session ID (transcript UUID, for `--resume`):
+  `635f96c9-2890-45bb-85af-6709768930c7`
+- Hit the first-run "trust this folder" prompt (new clone location on this
+  host); confirmed with explicit user permission.
+- Launch command used (run locally, already on `ls8-slurm`):
+  `tmux new-session -d -s moodle-cli-1 -c ~/git/moodle-cli 'claude --remote-control moodle-cli-1'`
+- Monitor: `tmux capture-pane -t moodle-cli-1 -p | tail -n 50`
+- Attach: `tmux attach -t moodle-cli-1`
+- Resume (after a kill or restart): use the `resume-agent` skill.
+- Cancel: `tmux kill-session -t moodle-cli-1`
