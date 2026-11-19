@@ -29,3 +29,9 @@ Running log of agent-session setup and activity for this repo, on the
 - Attach: `tmux attach -t moodle-cli-1`
 - Resume (after a kill or restart): use the `resume-agent` skill.
 - Cancel: `tmux kill-session -t moodle-cli-1`
+
+## 2026-10-01 — Node setup
+
+- Installed nvm v0.40.3 (~/.nvm) and Node 22.23.3 on the login node (light, no SLURM).
+- SLURM job 113971: `srun -p interactive -c 1 --mem=2G -t 10 npm ci --omit=dev --ignore-scripts` — install runtime deps only. Completed, 0 vulnerabilities.
+- Running `src/cli.ts` directly fails: ERR_MODULE_NOT_FOUND for `./intent-contract.js` (imports use `.js` for `.ts` files); needs a build (`tsup`, dev dep).
